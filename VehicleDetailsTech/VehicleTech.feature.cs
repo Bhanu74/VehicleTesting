@@ -73,20 +73,27 @@ namespace VehicleDetailsTech
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verifying valid Registration Number")]
         [NUnit.Framework.CategoryAttribute("vehicleexists")]
-        public virtual void VerifyingValidRegistrationNumber()
+        [NUnit.Framework.TestCaseAttribute("OV12UYY", null)]
+        [NUnit.Framework.TestCaseAttribute("OV12 UYY", null)]
+        public virtual void VerifyingValidRegistrationNumber(string validRegNum, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verifying valid Registration Number", null, new string[] {
-                        "vehicleexists"});
+            string[] @__tags = new string[] {
+                    "vehicleexists"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verifying valid Registration Number", null, @__tags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 8
  testRunner.Given("I am in URL https://covercheck.vwfsinsuranceportal.co.uk/", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
- testRunner.When("I enter Vehicle registration number OV12UYY", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
- testRunner.And("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When(string.Format("I enter Vehicle registration number {0}", validRegNum), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
+ testRunner.And("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
  testRunner.Then("I should  see vehicle detail", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -94,21 +101,28 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verifying Invalid Registration Number")]
+        [NUnit.Framework.CategoryAttribute("Invalidtests")]
         [NUnit.Framework.TestCaseAttribute("OV12YY", null)]
         [NUnit.Framework.TestCaseAttribute("OV123VNUYY", null)]
         public virtual void VerifyingInvalidRegistrationNumber(string regNum, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verifying Invalid Registration Number", null, exampleTags);
-#line 14
+            string[] @__tags = new string[] {
+                    "Invalidtests"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verifying Invalid Registration Number", null, @__tags);
+#line 19
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 15
+#line 20
 testRunner.Given("I am in URL https://covercheck.vwfsinsuranceportal.co.uk/", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 16
+#line 21
 testRunner.When(string.Format("I enter invalid registration details {0}", regNum), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
+#line 22
 testRunner.And("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
+#line 23
 testRunner.Then("I should see a  message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -116,17 +130,19 @@ testRunner.Then("I should see a  message", ((string)(null)), ((TechTalk.SpecFlow
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verifying page  with blank registration number")]
+        [NUnit.Framework.CategoryAttribute("blank")]
         public virtual void VerifyingPageWithBlankRegistrationNumber()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verifying page  with blank registration number", null, ((string[])(null)));
-#line 25
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verifying page  with blank registration number", null, new string[] {
+                        "blank"});
+#line 30
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 26
+#line 31
 testRunner.Given("I am in URL https://covercheck.vwfsinsuranceportal.co.uk/", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 27
+#line 32
 testRunner.When("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 28
+#line 33
 testRunner.Then("a message is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

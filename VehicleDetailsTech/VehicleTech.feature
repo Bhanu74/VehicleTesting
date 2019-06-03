@@ -4,13 +4,18 @@
 	I want to enter vehicle detals
 
 @vehicleexists
-Scenario: Verifying valid Registration Number
+Scenario Outline: Verifying valid Registration Number
 	Given I am in URL https://covercheck.vwfsinsuranceportal.co.uk/
-	When I enter Vehicle registration number OV12UYY 
+	##When I enter Vehicle registration number OV12UYY
+	When I enter Vehicle registration number <ValidRegNum>
 	And I press submit button
 	Then I should  see vehicle detail
+	Examples: 
+	| ValidRegNum |
+	| OV12UYY     |
+	| OV12 UYY    |
 
-
+@Invalidtests
 Scenario Outline: Verifying Invalid Registration Number
 Given I am in URL https://covercheck.vwfsinsuranceportal.co.uk/
 When I enter invalid registration details <RegNum>
@@ -21,7 +26,7 @@ Examples:
 | OV12YY    |                 
 | OV123VNUYY |  
 
-
+@blank
 Scenario: Verifying page  with blank registration number
 Given I am in URL https://covercheck.vwfsinsuranceportal.co.uk/
 When I press submit button

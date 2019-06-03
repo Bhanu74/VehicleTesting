@@ -14,8 +14,10 @@ namespace VehicleDetailsTech
     {
         // For additional details on SpecFlow step definitions see https://go.specflow.org/doc-stepdef
 
+        
+
         private readonly ScenarioContext context;
-        WebDriverWait wait =new WebDriverWait(driver, new TimeSpan(0, 0, 5));
+       
 
         public VehicleTechSteps(ScenarioContext injectedContext)
         {
@@ -23,17 +25,20 @@ namespace VehicleDetailsTech
         }
 
 
+        public WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(0, 0, 5));
+
         [Given(@"I am in URL https://covercheck\.vwfsinsuranceportal\.co\.uk/")]
         public void GivenIAmInURLHttpsCovercheck_Vwfsinsuranceportal_Co_Uk()
         {
-            driver.Navigate().GoToUrl("https://covercheck.vwfsinsuranceportal.co.uk/");
-        }
-
+             driver.Navigate().GoToUrl("https://covercheck.vwfsinsuranceportal.co.uk/");
+            
+         }
+    
         
-        [When(@"I enter Vehicle registration number OV(.*)UYY")]
-        public void WhenIEnterVehicleRegistrationNumberOVUYY(int p0)
+        [When(@"I enter Vehicle registration number (.*)")]
+        public void WhenIEnterVehicleRegistrationNumberOVUYY(string ValidRegNum)
         {
-            driver.FindElement(By.CssSelector("#vehicleReg")).SendKeys("OV12UYY");
+            driver.FindElement(By.CssSelector("#vehicleReg")).SendKeys(ValidRegNum);
         }
 
         [When(@"I press submit button")]

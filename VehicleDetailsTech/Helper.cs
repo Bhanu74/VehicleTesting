@@ -1,34 +1,47 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Support.UI;
-using TechTalk.SpecFlow;
 
 namespace VehicleDetailsTech
 {
-    [TestClass]
-    public  class Helper
-    {
-       public RemoteWebDriver Driver { set; get; }
-        public static  IWebDriver driver = new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(0, 0, 30));
 
-     
 
-        [AfterScenario]
-        public void Teardown()
+    public class Helper
+
+           {
+        
+       public static IWebDriver driver = new ChromeDriver();
+              
+
+        public static Func<IWebDriver, IWebElement> ElementIsClickable(By locator)
         {
-            try
+            return driver =>
             {
-                driver.Quit();
-            }
-            catch
+                Thread.Sleep(2000);
+                var element = driver.FindElement(locator);
+                return (element != null && element.Displayed && element.Enabled) ? element : null;
+            };
+
+        }
+
+        [TearDown]
+        public void closeDriver()
+        {
+            driver.Close();
             {
 
+                try
+                {
+                    driver.Quit();
+                }
+                catch { }
+
             }
+
         }
+                  
 
     }
 }
