@@ -16,13 +16,13 @@ namespace VehicleDetailsTech
 
         
 
-        private readonly ScenarioContext context;
+        //private readonly ScenarioContext context;
        
 
-        public VehicleTechSteps(ScenarioContext injectedContext)
-        {
-            context = injectedContext;
-        }
+        //public VehicleTechSteps(ScenarioContext injectedContext)
+        //{
+        //    context = injectedContext;
+        //}
 
 
         public WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(0, 0, 5));
@@ -52,30 +52,15 @@ namespace VehicleDetailsTech
         {
             wait.Until(c => c.FindElement(By.CssSelector(".result")));
             Assert.IsTrue(driver.FindElement(By.CssSelector(".result")).Text.Contains("Result for : OV12UYY"));
-        }
-
-
-
-        
-
-       
-
-       // [Then(@"I should  see vehicle details")]
-        //public void ThenIShouldSeeVehicleDetails()
-        //{
-
-        //    wait.Until(c => c.FindElement(By.CssSelector(".Result for : OV12UYY")));
-        //    Assert.IsTrue(driver.FindElement(By.CssSelector(".result")).Text.Contains("Result for : OV12UYY"));
             
-        //}
-
+        }
+        
 
         [When(@"I enter invalid registration details (.*)")]
         public void WhenIEnterInvalidRegistrationDetailsOVYY(string RegNum)
         {
             driver.FindElement(By.CssSelector("#vehicleReg")).SendKeys(RegNum);
         }
-
 
         
         [Then(@"I should see a  message")]
@@ -92,6 +77,7 @@ namespace VehicleDetailsTech
         {
 
             Assert.IsTrue(driver.FindElement(By.ClassName("error-required")).Text.Contains("Please enter a valid car registration"));
+            
         }
         
 

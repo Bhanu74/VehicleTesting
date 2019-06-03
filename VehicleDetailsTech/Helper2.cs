@@ -5,14 +5,14 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace VehicleDetailsTech
-{
-
-    public class Helper
+{ 
+   
+    public class Helper2
 
     {
-        
-       public static IWebDriver driver = new ChromeDriver();
-              
+
+        public static IWebDriver driver = new ChromeDriver();
+
 
         public static Func<IWebDriver, IWebElement> ElementIsClickable(By locator)
         {
@@ -40,7 +40,7 @@ namespace VehicleDetailsTech
             }
 
         }
-                  
+
 
     }
-}
+
