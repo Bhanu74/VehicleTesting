@@ -19,6 +19,7 @@ namespace VehicleDetailsTech
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Verifying vehicle exists by entering registration number")]
+    [NUnit.Framework.CategoryAttribute("tests")]
     public partial class VerifyingVehicleExistsByEnteringRegistrationNumberFeature
     {
         
@@ -32,7 +33,8 @@ namespace VehicleDetailsTech
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Verifying vehicle exists by entering registration number", "\tIn order to verify given vehicle exists\r\n\tAs a user\r\n\tI want to enter vehicle de" +
-                    "tals", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "tals", ProgrammingLanguage.CSharp, new string[] {
+                        "tests"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -84,16 +86,16 @@ namespace VehicleDetailsTech
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verifying valid Registration Number", null, @__tags);
-#line 7
+#line 8
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 8
+#line 9
  testRunner.Given("I am in URL https://covercheck.vwfsinsuranceportal.co.uk/", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 10
- testRunner.When(string.Format("I enter Vehicle registration number {0}", validRegNum), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.And("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When(string.Format("I enter Vehicle registration number {0}", validRegNum), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
+ testRunner.And("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
  testRunner.Then("I should  see vehicle detail", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -113,16 +115,16 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verifying Invalid Registration Number", null, @__tags);
-#line 19
+#line 20
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 20
-testRunner.Given("I am in URL https://covercheck.vwfsinsuranceportal.co.uk/", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 21
-testRunner.When(string.Format("I enter invalid registration details {0}", regNum), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I am in URL https://covercheck.vwfsinsuranceportal.co.uk/", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 22
-testRunner.And("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When(string.Format("I enter invalid registration details {0}", regNum), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
+testRunner.And("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
 testRunner.Then("I should see a  message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -135,14 +137,14 @@ testRunner.Then("I should see a  message", ((string)(null)), ((TechTalk.SpecFlow
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verifying page  with blank registration number", null, new string[] {
                         "blank"});
-#line 30
+#line 31
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 31
-testRunner.Given("I am in URL https://covercheck.vwfsinsuranceportal.co.uk/", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 32
-testRunner.When("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I am in URL https://covercheck.vwfsinsuranceportal.co.uk/", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 33
+testRunner.When("I press submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 34
 testRunner.Then("a message is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

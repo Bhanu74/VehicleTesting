@@ -1,4 +1,5 @@
-﻿Feature: Verifying vehicle exists by entering registration number
+﻿@tests
+Feature: Verifying vehicle exists by entering registration number
 	In order to verify given vehicle exists
 	As a user
 	I want to enter vehicle detals

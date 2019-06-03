@@ -78,6 +78,7 @@ namespace VehicleDetailsTech
 
             Assert.IsTrue(driver.FindElement(By.ClassName("error-required")).Text.Contains("Please enter a valid car registration"));
             
+
         }
         
 

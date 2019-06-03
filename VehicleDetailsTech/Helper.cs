@@ -3,6 +3,7 @@ using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using TechTalk.SpecFlow;
 
 namespace VehicleDetailsTech
 {
@@ -25,21 +26,27 @@ namespace VehicleDetailsTech
 
         }
 
-        [TearDown]
-        public void closeDriver()
+        [AfterFeature("tests")]
+        public static void afterFeature()
         {
-            driver.Close();
-            {
+            driver.Quit();
 
-                try
-                {
-                    driver.Quit();
-                }
-                catch { }
+          }
 
-            }
+        //public void closeDriver()
+        //{
+        //    driver.Close();
+        //    {
 
-        }
+        //        try
+        //        {
+        //            driver.Quit();
+        //        }
+        //        catch { }
+
+        //    }
+
+        //}
                   
 
     }
