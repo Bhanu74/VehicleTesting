@@ -26,28 +26,7 @@ namespace VehicleDetailsTech
 
         }
 
-        [AfterFeature("tests")]
-        public static void afterFeature()
-        {
-            driver.Quit();
-
-          }
-
-        //public void closeDriver()
-        //{
-        //    driver.Close();
-        //    {
-
-        //        try
-        //        {
-        //            driver.Quit();
-        //        }
-        //        catch { }
-
-        //    }
-
-        //}
-                  
+        
 
     }
 }

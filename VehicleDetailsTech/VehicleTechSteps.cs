@@ -80,7 +80,14 @@ namespace VehicleDetailsTech
             
 
         }
-        
+
+        [AfterFeature("tests")]
+        public static void afterFeature()
+        {
+            driver.Quit();
+
+        }
+
 
     }
 }
